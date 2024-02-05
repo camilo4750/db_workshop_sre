@@ -23,7 +23,7 @@ services:
         volumes:
             - ~/storage_block/workshop/postgres/data:/var/lib/postgresql/data
         ports:
-            - 5438:5432
+                - 5438:5432
 
 #docker network create migrations-workshop-sre-network
 networks:
