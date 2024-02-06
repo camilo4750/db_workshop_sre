@@ -13,9 +13,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('code');
-            $table->integer('user_who_created_id');
-            $table->integer('user_who_updated_id');
-            $table->integer('user_who_deleted_id');
+            $table->foreign('user_who_created_id')->references('id')->on('users');
+            $table->foreign('user_who_updated_id')->references('id')->on('users');
+            $table->foreign('user_who_deleted_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
         });

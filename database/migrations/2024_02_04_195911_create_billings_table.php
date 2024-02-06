@@ -16,9 +16,9 @@ return new class extends Migration
             $table->json('spare_parts');
             $table->integer('customer_id');
             $table->integer('service_id');
-            $table->integer('user_who_created_id');
-            $table->integer('user_who_updated_id');
-            $table->integer('user_who_deleted_id');
+            $table->foreign('user_who_created_id')->references('id')->on('users');
+            $table->foreign('user_who_updated_id')->references('id')->on('users');
+            $table->foreign('user_who_deleted_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
         });
