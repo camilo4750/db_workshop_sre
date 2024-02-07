@@ -12,17 +12,20 @@ return new class extends Migration
             $table->id();
             $table->string('plate');
             $table->string('color');
-            $table->string('plate');
             $table->string('year');
             $table->integer('customer_id');
             $table->integer('billing_id');
             $table->integer('brand_id');
             $table->integer('model_id');
+            $table->unsignedBigInteger('user_who_created_id');
+            $table->unsignedBigInteger('user_who_updated_id')->nullable();
+            $table->unsignedBigInteger('user_who_deleted_id')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+
             $table->foreign('user_who_created_id')->references('id')->on('users');
             $table->foreign('user_who_updated_id')->references('id')->on('users');
             $table->foreign('user_who_deleted_id')->references('id')->on('users');
-            $table->timestamps();
-            $table->softDeletes();
         });
 
         Schema::table('vehicles', function (Blueprint $table) {

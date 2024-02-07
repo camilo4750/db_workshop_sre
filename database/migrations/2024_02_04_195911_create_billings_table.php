@@ -16,11 +16,15 @@ return new class extends Migration
             $table->json('spare_parts');
             $table->integer('customer_id');
             $table->integer('service_id');
+            $table->unsignedBigInteger('user_who_created_id');
+            $table->unsignedBigInteger('user_who_updated_id')->nullable();
+            $table->unsignedBigInteger('user_who_deleted_id')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+
             $table->foreign('user_who_created_id')->references('id')->on('users');
             $table->foreign('user_who_updated_id')->references('id')->on('users');
             $table->foreign('user_who_deleted_id')->references('id')->on('users');
-            $table->timestamps();
-            $table->softDeletes();
         });
 
         Schema::table('billings', function (Blueprint $table) {

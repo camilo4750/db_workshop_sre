@@ -16,11 +16,16 @@ return new class extends Migration
             $table->string('address');
             $table->string('role');
             $table->boolean('active');
+            $table->unsignedBigInteger('user_who_created_id');
+            $table->unsignedBigInteger('user_who_updated_id')->nullable();
+            $table->unsignedBigInteger('user_who_deleted_id')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+            
             $table->foreign('user_who_created_id')->references('id')->on('users');
             $table->foreign('user_who_updated_id')->references('id')->on('users');
             $table->foreign('user_who_deleted_id')->references('id')->on('users');
-            $table->timestamps();
-            $table->softDeletes();
+            
         });
     }
 

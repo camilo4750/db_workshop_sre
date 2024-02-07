@@ -11,11 +11,15 @@ return new class extends Migration
         Schema::create('models', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->unsignedBigInteger('user_who_created_id');
+            $table->unsignedBigInteger('user_who_updated_id')->nullable();
+            $table->unsignedBigInteger('user_who_deleted_id')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+
             $table->foreign('user_who_created_id')->references('id')->on('users');
             $table->foreign('user_who_updated_id')->references('id')->on('users');
             $table->foreign('user_who_deleted_id')->references('id')->on('users');
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 
