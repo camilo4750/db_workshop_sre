@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('surname_2')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('phone');
+            $table->string('phone', '20');
             $table->boolean('active');
             $table->unsignedBigInteger('type_user_id');
             $table->unsignedBigInteger('user_who_created_id')->nullable();
