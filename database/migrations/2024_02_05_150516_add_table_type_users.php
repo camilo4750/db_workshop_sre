@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('type_users', function (Blueprint $table) {
             $table->id();
             $table->string('type_user');
-            $table->unsignedBigInteger('user_who_created_id');
+            $table->unsignedBigInteger('user_who_created_id')->nullable();
             $table->unsignedBigInteger('user_who_updated_id')->nullable();
             $table->unsignedBigInteger('user_who_deleted')->nullable();
             $table->timestamps();

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('phone');
             $table->boolean('active');
             $table->unsignedBigInteger('type_user_id');
-            $table->unsignedBigInteger('user_who_created_id');
+            $table->unsignedBigInteger('user_who_created_id')->nullable();
             $table->unsignedBigInteger('user_who_updated_id')->nullable();
             $table->unsignedBigInteger('user_who_deleted_id')->nullable();
             $table->timestamps();
