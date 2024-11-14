@@ -13,20 +13,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
-            $table->string('email')->unique();
+            $table->string('full_name', 150);
+            $table->string('email', 150)->unique();
             $table->string('password');
-            $table->string('phone', '20');
-            $table->boolean('active');
-            $table->unsignedBigInteger('type_user_id');
-            $table->unsignedBigInteger('user_who_created_id')->nullable();
-            $table->unsignedBigInteger('user_who_updated_id')->nullable();
-            $table->unsignedBigInteger('user_who_deleted_id')->nullable();
+            $table->string('phone', 30)->nullable();
+            $table->boolean('active')->default(true);
+            $table->foreignId('user_who_created_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('user_who_updated_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('user_who_deleted_id')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('type_user_id')->references('id')
-                ->on('type_users')->onUpdate('RESTRICT')->onDelete('CASCADE');
         });
     }
 
