@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pension_funds', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
-            $table->string('nit', 50)->unique();
+            $table->string('nit', 50)->nullable()->unique();
         });
     }
 

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('banks', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
-            $table->string('bank_code', 5)->unique();
+            $table->string('bank_code', 5)->nullable()->unique();
         });
     }
 
