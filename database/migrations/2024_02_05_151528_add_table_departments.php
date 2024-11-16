@@ -14,10 +14,10 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('code');
-            $table->foreignId('country_id')->constrained('countries')->onDelete('CASCADE')->onUpdate('RESTRICT');
-            $table->foreignId('user_who_created_id')->constrained('users')->onDelete('set null');
-            $table->foreignId('user_who_updated_id')->nullable()->constrained('users')->onDelete('set null');
-            $table->foreignId('user_who_deleted_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('country_id')->constrained('countries')->cascadeOnDelete()->restrictOnUpdate();
+            $table->foreignId('user_who_created_id')->constrained('users')->nullOnDelete();
+            $table->foreignId('user_who_updated_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('user_who_deleted_id')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });

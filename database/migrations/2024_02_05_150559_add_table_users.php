@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone', 30)->nullable();
             $table->boolean('active')->default(true);
-            $table->foreignId('user_who_created_id')->nullable()->constrained('users')->onDelete('set null');
-            $table->foreignId('user_who_updated_id')->nullable()->constrained('users')->onDelete('set null');
-            $table->foreignId('user_who_deleted_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('user_who_created_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('user_who_updated_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('user_who_deleted_id')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });

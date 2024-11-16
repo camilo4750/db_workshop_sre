@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
-            $table->decimal('base_price', $precision = 8, $scale = 2);
+            $table->decimal('base_price', 8, 2)->nullable();
         });
     }
 
