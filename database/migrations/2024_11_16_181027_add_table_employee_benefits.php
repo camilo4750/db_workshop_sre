@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('period_start');
             $table->date('period_end');
             $table->decimal('amount',8,2)->default(0);
-            $table->timestamp('payment_date')->nullable();
+            $table->dateTime('payment_date')->nullable();
             $table->string('observation')->nullable();
             $table->foreignId('benefit_status_id')->nullable()->constrained('benefits_status')->nullOnDelete();
             $table->foreignId('user_who_created_id')->nullable()->constrained('users')->nullOnDelete();
