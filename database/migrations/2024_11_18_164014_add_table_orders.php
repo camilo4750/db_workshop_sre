@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('supplier_id')->constrained('suppliers')->cascadeOnDelete();
-            $table->timestamp('order_date');
+            $table->dateTime('order_date');
             $table->date('expected_delivery_date')->nullable();
             $table->foreignId('status_id')->nullable()->constrained('orders_status')->nullOnDelete();
             $table->decimal('total_amount', 8, 2)->nullable();

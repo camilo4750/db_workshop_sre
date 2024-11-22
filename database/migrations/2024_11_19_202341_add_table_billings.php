@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('taxe_id')->constrained('taxes');
             $table->foreignId('payment_method_id')->constrained('payment_methods');
             $table->decimal('total_amount',8,2)->nullable();
-            $table->timestamp('billing_date')->nullable();
+            $table->dateTime('billing_date')->nullable();
             $table->string('observation', 250)->nullable();
             $table->foreignId('user_who_created_id')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignId('user_who_updated_id')->nullable()->constrained('users')->nullOnDelete();
