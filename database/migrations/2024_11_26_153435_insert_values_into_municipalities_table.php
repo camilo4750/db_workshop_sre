@@ -10,7 +10,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::table('departments')->insert([
+        DB::table('municipalities')->insert([
             ['name' => 'Tunja', 'code' => 'TU', 'department_id' => 1],
             ['name' => 'Duitama', 'code' => 'DU', 'department_id' => 1],
             ['name' => 'Sogamoso', 'code' => 'SO', 'department_id' => 1],
@@ -49,9 +49,38 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::table('departments')
+        DB::table('municipalities')
         ->whereIn('name', [
-            'Boyacá',
+            'Tunja',
+            'Duitama',   
+            'Sogamoso',   
+            'Chiquinquirá',   
+            'Paipa',   
+            'Villa de Leyva',   
+            'Puerto Boyacá',   
+            'Moniquirá',   
+            'Tibasosa',   
+            'Berbeo',   
+            'Arcabuco',   
+            'Bárcena',   
+            'Belén',   
+            'Berbeo',   
+            'Boavita',   
+            'Boyacá',   
+            'Briceño',   
+            'Busbanzá',   
+            'Cerinza',   
+            'Chíquiza',   
+            'Ciénaga',   
+            'Cómbita',   
+            'Corrales',   
+            'Covarachía',   
+            'Cubará',   
+            'Cuítiva',   
+            'Chivor',   
+            'Chinavita',   
+            'El Cocuy',   
+            'El Espino',   
         ])
         ->delete();
     }
